@@ -1,0 +1,92 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-ide",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2020-08-27T10:45:03Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/188114259",
+        "addr:city": "Ho Chi Minh City",
+        "addr:district": "7",
+        "addr:housenumber": "10",
+        "addr:street": "Tân Trào",
+        "addr:subdistrict": "Phường Tân Phú",
+        "building": "office",
+        "building:levels": "22",
+        "height": 110,
+        "name": "Vinamilk",
+        "name:vi": "Tòa nhà Vinamilk",
+        "office": "company",
+        "website": "https://www.vinamilk.com.vn"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.723882,
+              10.7299006
+            ],
+            [
+              106.7235504,
+              10.7297023
+            ],
+            [
+              106.7237405,
+              10.7293954
+            ],
+            [
+              106.7240721,
+              10.7295937
+            ],
+            [
+              106.723882,
+              10.7299006
+            ]
+          ]
+        ]
+      },
+      "id": "way/188114259"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/188114232",
+        "building": "yes",
+        "building:levels": "4",
+        "height": 20,
+        "name": "Unilever"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              106.7220209,
+              10.7272701
+            ],
+            [
+              106.7225162,
+              10.7264657
+            ],
+            [
+              106.722824,
+              10.7266486
+            ],
+            [
+              106.7223286,
+              10.727453
+            ],
+            [
+              106.7220209,
+              10.7272701
+            ]
+          ]
+        ]
+      },
+      "id": "way/188114232"
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>GeoJSONLayer | Sample | ArcGIS API for JavaScript 4.16</title>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.16/"></script>
+
+  <script>
+let jsondata = {
+  polygons: [
+  
+  {//cua chinh  
+        type: "polygon",
+        rings: [
+        [106.72346218025724, 10.737090943195273,20],
+		[106.72346251553336, 10.737085343289042,0],
+		[106.72372704675287, 10.737048736268042,0],
+[106.72372570564836, 10.737054006768664,20],
+		[106.72346218025724, 10.737090943195273,20]
+      
+        ],
+        symbol: {
+          type: "simple-fill", 
+          color: [0, 255, 0, 0.7],
+          outline: {
+            color: [255, 255, 255],
+            width: 1
+          }
+        }
+      },
+      {//cua so 1  
+        type: "polygon",
+        rings: [
+        [106.72346218025724, 10.737090943195273,50],
+		[106.72346251553336, 10.737085343289042,40],
+		[106.72372704675287, 10.737048736268042,40],
+[106.72372570564836, 10.737054006768664,50],
+		[106.72346218025724, 10.737090943195273,50]
+      
+        ],
+        symbol: {
+          type: "simple-fill", 
+          color: [0, 255, 0, 0.7],
+          outline: {
+            color: [255, 255, 255],
+            width: 1
+          }
+        }
+      },
+       {//cua phu 
+        type: "polygon",
+        rings: [
+       [106.72486738070171, 10.736916309571797,20],
+	[106.72486738070171, 10.736912686100982,0],
+[106.72473025276587, 10.736916309571797,0],
+[106.72473092331812, 10.736918615416844,20],
+
+[106.72486738070171, 10.736916309571797,20]
+
+        ],
+        symbol: {
+          type: "simple-fill", 
+          color: [0, 255, 0, 0.7],
+          outline: {
+            color: [255, 255, 255],
+            width: 1
+          }
+        }
+      },
+      {//cua so 2  
+        type: "polygon",
+        rings: [
+        [106.72486738070171, 10.736916309571797,50],
+	[106.72486738070171, 10.736912686100982,40],
+[106.72473025276587, 10.736916309571797,40],
+[106.72473092331812, 10.736918615416844,50],
+
+[106.72486738070171, 10.736916309571797,50]
+      
+        ],
+        symbol: {
+          type: "simple-fill", 
+          color: [0, 255, 0, 0.7],
+          outline: {
+            color: [255, 255, 255],
+            width: 1
+          }
+        }
+      },
+
+      {//left
+        type: "polygon",
+        rings: [
+          [106.72503965443553, 10.736912734364068,60],
+          [106.72483044213234, 10.737803448065204,60],
+          [106.72406333035224, 10.737508300620634,100],
+            [106.72503965443553, 10.736912734364068,60]
+
+
+
+    
+        ],
+        symbol: {
+          type: "simple-fill", 
+          color: [0, 255, 0, 0.7],
+          outline: {
+            color: [255, 255, 255],
+            width: 1
+          }
+        }
+      },
+
+      {//right
+        type: "polygon",
+        rings: [
+         [106.72327476090351, 10.737113013413268,60],
+          [106.72312455719864, 10.737887775853514,60],
+          [106.72406333035224, 10.737508300620634,100],
+          [106.72327476090351, 10.737113013413268,60],
+
+        ],
+        symbol: {
+          type: "simple-fill", 
+          color: [0, 255, 0, 0.7],
+          outline: {
+            color: [255, 255, 255],
+            width: 1
+          }
+        }
+      },
+      {//front
+        type: "polygon",
+        rings: [
+         [106.72312455719864, 10.737887775853514,60],
+            [106.72483044213234, 10.737803448065204,60],
+          [106.72406333035224, 10.737508300620634,100],
+           [106.72312455719864, 10.737887775853514,60]
+          
+
+        ],
+        symbol: {
+          type: "simple-fill", 
+          color: [0, 255, 0, 0.7],
+          outline: {
+            color: [255, 255, 255],
+            width: 1
+          }
+        }
+      },
+      {//behind
+        type: "polygon",
+        rings: [
+          [106.72503965443553, 10.736912734364068,60],
+            [106.72327476090351, 10.737113013413268,60],
+          [106.72406333035224, 10.737508300620634,100],
+           
+           [106.72503965443553, 10.736912734364068,60]
+
+        ],
+        symbol: {
+          type: "simple-fill", 
+          color: [0, 255, 0, 0.7],
+          outline: {
+            color: [255, 255, 255],
+            width: 1
+          }
+        }
+      },
+
+
+
+      {//bottom
+        type: "polygon",
+        rings: [
+            [106.72503965443553, 10.736912734364068,0],
+            [106.72327476090351, 10.737113013413268,0],
+            [106.72312455719864, 10.737887775853514,0],
+            [106.72483044213234, 10.737803448065204,0],
+            [106.72503965443553, 10.736912734364068,0],
+           
+            
+        ],
+        symbol:  {
+                type: "polygon-3d",
+                symbolLayers: [
+                  {
+                    type: "extrude",
+                    size: 60,
+                    
+                    material: {
+                      color: "#FF0000",
+                     },
+                    edges: {
+                      type: "solid",
+                      color: [50, 50, 50, 0.5],
+                    },
+                  },
+                ],
+              },
+
+        
+        popupTemplate: {
+          title: "{Bệnh viện quận 7}",
+                content: [
+                  {
+                    type: "fields",
+                    fieldInfos: [
+                      {
+                        fieldName: "name",
+                        label: "Bệnh viện quận 7",
+                      },
+                      {
+                        fieldName: "@id",
+                        label: "@id",
+                      },
+                      {
+                        fieldName: "addr:street ",
+                        label: "addr:street ",
+                      },
+                      {
+                        fieldName: "building",
+                        label: "building",
+                      },
+                      {
+                        fieldName: "building:levels",
+                        label: "building:levels",
+                      },
+                      {
+                        fieldName: "height",
+                        label: "height",
+                      },
+                      {
+                        fieldName: "layer",
+                        label: "layer",
+                      },
+                      {
+                        fieldName: "shop",
+                        label: "shop",
+                      },
+                      {
+                        fieldName: "website",
+                        label: "website",
+                      },
+                    ],
+                  },
+                ],
+          
+        }
+
+        }
+        ]
+      }
+
+    
+  
+    require([
+      "esri/Map",
+      "esri/request",
+      "esri/Graphic",
+      "esri/layers/GraphicsLayer",
+      "esri/views/SceneView",
+      "esri/layers/GeoJSONLayer",
+      "esri/layers/SceneLayer" ], function (
+        Map,
+        esriRequest,
+        Graphic,
+        GraphicsLayer,
+        SceneView,
+        GeoJSONLayer,
+        SceneLayer
+        
+      ) 
+      {
+       
+        const z_global = 6.5; 
+        const colors = 
+        [ 
+            "#000000",  
+            " #FFFFFF ",
+          " #FF0000 ",
+          " #00FF00 ",
+          " #0000FF ",
+          " #FFFF00 ",
+
+          "#8c2393",
+          "#5dd5fb",
+          "#484afa",
+          "#c11f4a",
+          "#ccd283",
+          "#c5f91d",
+          "#78314b",
+          "#ff0897",
+          "#e9e001",
+          " #00FFFF ",
+          " #FF00FF ",
+          " #C0C0C0 ",
+          " #808080 ",
+          " #800000 ",
+          " #808000 ",
+          " #008000 ",
+          " #800080 ",
+          " #008080 ",
+          " #000080",
+        ];
+
+        const map = new Map({
+          basemap: "topo-vector",
+          ground: "world-elevation",
+        });
+       
+
+
+
+        esriRequest("geojson/q7.geojson").then(function (respone) {
+          let graphicsLever = new GraphicsLayer()
+          let graphicsBuild = new GraphicsLayer()
+                   
+          respone.data.features.forEach((feature, index) => {
+            for (
+              let i = 1;
+              i < parseInt(feature.properties["building:levels"]);
+              i++
+                ) 
+            
+            {
+              let rings = [];
+              for (let j = 0; j < feature.geometry.coordinates[0].length; j++) 
+              {
+                rings.push([
+                  ...feature.geometry.coordinates[0][j],
+                  i * 3 + z_global, 
+                ]);
+              }
+              let temp = new Graphic(
+              {
+                geometry: {
+                  type: "polyline",
+                  paths: rings,
+                },
+                symbol: {
+                  type: "simple-line",
+                  color: [0, 0, 0],
+                  width: 2,
+                },
+                attributes: feature.properties,
+              });
+              graphicsLever.add(temp);
+            }
+       
+            let rings_polygon = [];
+            for (let j = 1; j < feature.geometry.coordinates[0].length; j++) 
+            {
+              rings_polygon.push([
+                ...feature.geometry.coordinates[0][j],
+                z_global,
+              ]);
+            }
+
+            let temp = new Graphic({
+              geometry: {
+                type: "polygon",
+                rings: rings_polygon,
+              },
+              symbol: 
+              {
+                type: "polygon-3d",
+                symbolLayers: [
+                  {
+                    type: "extrude",
+                    size:
+                      3 * parseInt(feature.properties["building:levels"])
+                        ? 3 * parseInt(feature.properties["building:levels"])
+                        : 10,
+                    material: {
+                      color: colors[index] ? colors[index] : "#aded9f",
+                     },
+                    edges: {
+                      type: "solid",
+                      color: [50, 50, 50, 0.5],
+                    },
+                  },
+                ],
+              },
+            attributes: feature.properties,
+              popupTemplate: {
+                title: "{name}",
+                content: [
+                  {
+                    type: "fields",
+                    fieldInfos: [
+                      {
+                        fieldName: "name",
+                        label: "name",
+                      },
+                      {
+                        fieldName: "@id",
+                        label: "@id",
+                      },
+                      {
+                        fieldName: "addr:street ",
+                        label: "addr:street ",
+                      },
+                      {
+                        fieldName: "building",
+                        label: "building",
+                      },
+                      {
+                        fieldName: "building:levels",
+                        label: "building:levels",
+                      },
+                      {
+                        fieldName: "height",
+                        label: "height",
+                      },
+                      {
+                        fieldName: "layer",
+                        label: "layer",
+                      },
+                      {
+                        fieldName: "shop",
+                        label: "shop",
+                      },
+                      {
+                        fieldName: "website",
+                        label: "website",
+                      },
+                    ],
+                  },
+                ],
+              },
+            });
+            graphicsBuild.add(temp);
+            
+
+          });
+          map.add(graphicsBuild);
+          map.add(graphicsLever);
+        })
+
+       var createGraphic = function (data) {
+      return new Graphic({
+        geometry: data,
+        symbol: data.symbol,
+        attributes: data,
+        popupTemplate: data.popupTemplate
+      });
+    }; 
+        var graphicsLayer = new GraphicsLayer();
+      
+    jsondata.polygons.forEach(function(data){
+      graphicsLayer.add(createGraphic(data));
+    });
+        
+        map.add(graphicsLayer);
+       
+    
+        const view = new SceneView({
+          container: "viewDiv",
+          map: map,
+          camera: {
+            position: [106.72194974965177, 10.710733012614137, 730.7279187720269],
+            heading: 0,
+            tilt: 75
+          }
+        });
+        view.popup.defaultPopupTemplateEnabled = true;
+      })
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
